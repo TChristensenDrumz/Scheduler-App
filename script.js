@@ -5,6 +5,7 @@ var textareas = $("textarea");
 
 init();
 
+// Initializes page with current day
 function init() {
     $("#currentDay").text(currentDay);
     var time;
@@ -13,6 +14,7 @@ function init() {
             time = i;
         }
     }
+    // Sets time blocks classes based on current time
     for(let i = 0; i < time; i++){
         rows[i].children[1].classList.add("past");
     }
@@ -23,6 +25,7 @@ function init() {
     renderSchedule();
 }
 
+// Saves schedule to local storage
 $(".saveBtn").on("click", function(){
     var userData = [];
     for(let i = 0; i < rows.length; i++){
@@ -31,6 +34,7 @@ $(".saveBtn").on("click", function(){
     localStorage.setItem("user-data", JSON.stringify(userData));
 });
 
+// Renders schedule to the page
 function renderSchedule(){
     if(localStorage.getItem("user-data") !== null){
         var dataPull = JSON.parse(localStorage.getItem("user-data"));
