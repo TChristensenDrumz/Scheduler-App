@@ -1,5 +1,8 @@
+// Variables to access day and hour
 var currentDay = moment().format("dddd, MMMM Do");
 var currentHour = moment().format("h-a");
+
+// Variables to access rows and textareas on the page
 var rows = $(".row");
 var textareas = $("textarea");
 
