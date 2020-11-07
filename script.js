@@ -1,8 +1,7 @@
 var currentDay = moment().format("dddd, MMMM Do");
 var currentHour = moment().format("h-a");
 var rows = $(".row");
-console.log(currentDay);
-console.log(currentHour);
+var textareas = $("textarea");
 
 init();
 
@@ -12,7 +11,6 @@ function init() {
     for(let i = 0; i < rows.length; i++){
         if(rows[i].id === currentHour){
             time = i;
-            console.log(time);
         }
     }
     for(let i = 0; i < time; i++){
@@ -21,5 +19,23 @@ function init() {
     rows[time].children[1].classList.add("present");
     for(let i = time + 1; i < rows.length; i++){
         rows[i].children[1].classList.add("future");
+    }
+    renderSchedule();
+}
+
+$(".saveBtn").on("click", function(){
+    var userData = [];
+    for(let i = 0; i < rows.length; i++){
+        userData.push($(textareas[i]).val());
+    }
+    localStorage.setItem("user-data", JSON.stringify(userData));
+});
+
+function renderSchedule(){
+    if(localStorage.getItem("user-data") !== null){
+        var dataPull = JSON.parse(localStorage.getItem("user-data"));
+        for(let i = 0; i < dataPull.length; i++){
+            $(textareas[i]).val(dataPull[i]);
+        } 
     }
 }
