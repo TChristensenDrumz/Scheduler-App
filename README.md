@@ -1,4 +1,4 @@
-# Scheduler-HW
+# Scheduler-App
 
 This project is a simple day planner for employees with a busy schedule who want a daily planner to add events to so they can manage their time effectively. The user is presented with a schedule sheet with the current day posted and 24 time blocks with each hour of the day which that can enter important events into. When the user clicks a save button, their entire schedule is saved in local storage, so they can come back and view/edit their schedule whenever they like.
 
@@ -28,4 +28,4 @@ https://code.jquery.com/
 https://momentjs.com/
 
 ## Link
-https://tchristensendrumz.github.io/Scheduler-HW/
+https://tchristensendrumz.github.io/Scheduler-App/
